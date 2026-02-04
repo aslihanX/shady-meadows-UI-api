@@ -35,7 +35,7 @@ test('Admin - invalid credentials should not login', async ({ page }) => {
   await page.goto('/admin')
 
   await page.getByLabel('Username').fill('admin')
-  await page.getByLabel('Password').fill('wrongpass')
+  await page.getByLabel('Password').fill('wrongpassword')
   await page.getByRole('button', { name: 'Login' }).click()
 
   await expect(admin.invalidCredentialsAlert()).toBeVisible();

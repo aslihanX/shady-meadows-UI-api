@@ -18,6 +18,8 @@ export class AdminPage {
   }
 
   invalidCredentialsAlert(): Locator {
-    return this.page.locator('.alert.alert-danger', { hasText: /Invalid credentials/i });
-  }
+    return this.page.getByRole('alert', { hasText: /Invalid credentials/i });
+}
+
+
 }
