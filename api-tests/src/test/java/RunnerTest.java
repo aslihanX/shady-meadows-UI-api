@@ -1,3 +1,9 @@
-public class RunnerTest {
-    
+import com.intuit.karate.junit5.Karate;
+
+class RunnerTest {
+
+   @Karate.Test
+  Karate testBranding() {
+    return Karate.run("classpath:features/branding.feature");
+  }
 }
