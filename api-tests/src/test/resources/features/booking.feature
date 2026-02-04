@@ -22,4 +22,10 @@ Scenario: Create booking (soft check)
     "bookingdates": { "checkin": "#(checkin)", "checkout": "#(checkout)" }
   }
   """
-  
+   When method POST
+
+  * print 'booking status:', responseStatus
+  * print 'booking response:', response
+
+  * if (responseStatus == 200 || responseStatus == 201) karate.log('Booking created successfully')
+
