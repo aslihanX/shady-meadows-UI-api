@@ -1,0 +1,29 @@
+name: SDET Tests
+
+on: [push, pull_request]
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # API testleri için JDK kurulumu
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: API Tests
+        run: |
+          cd api-tests
+          mvn test
+
+      - name: UI Tests
+        run: |
+          cd ui-tests
+          npm install
+          # Sistem kütüphaneleriyle birlikte tarayıcıları kurar
+          npx playwright install --with-deps
+          npm test
