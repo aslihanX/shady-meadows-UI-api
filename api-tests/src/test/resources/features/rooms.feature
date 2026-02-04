@@ -5,7 +5,8 @@ Scenario: Verify available rooms
   When method GET
   Then status 200
 
- 
+  And match response.rooms == '#[]'
+  And assert response.rooms.length > 0
 
   And match each response.rooms contains
   """
@@ -17,4 +18,6 @@ Scenario: Verify available rooms
   }
   """
 
+  * def priced = karate.filter(response.rooms, function(x){ return x.roomPrice > 0 })
+  * assert priced.length > 0
  
