@@ -11,9 +11,9 @@
 
 ### Playwright (UI Tests)
 To run tests and view the visual HTML report:
-cd ui-tests
-npm run test
-npm run report
+-  cd ui-tests
+-  npm run test
+-  npm run report
 
 ### Karate (API Tests)
 - cd api-tests
