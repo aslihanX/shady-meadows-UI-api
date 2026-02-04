@@ -6,4 +6,8 @@ class RunnerTest {
   Karate testBranding() {
     return Karate.run("classpath:features/branding.feature");
   }
+   @Karate.Test
+  Karate testRooms() {
+    return Karate.run("classpath:features/rooms.feature");
+  }
 }
