@@ -12,4 +12,6 @@ test('Homepage sanity check', async ({ page }) => {
   await expect(home.messageInput()).toBeVisible();
   await expect(home.submitButton()).toBeVisible();
 
+  const count = await home.bookButtons().count();
+  expect(count).toBeGreaterThan(0);
 });
