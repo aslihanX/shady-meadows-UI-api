@@ -9,6 +9,16 @@
 - Karate: target/karate-reports/karate-summary.html
 - Playwright: npx playwright show-report
 
+### Playwright (UI Tests)
+To run tests and view the visual HTML report:
+cd ui-tests
+npm run test
+npm run report
+
+### Karate (API Tests)
+- cd api-tests
+- mvn test
+
 ### CI/CD
 - GitHub Actions pipeline executes API and UI tests on each push
 
