@@ -28,4 +28,7 @@ Scenario: Create booking (soft check)
   * print 'booking response:', response
 
   * if (responseStatus == 200 || responseStatus == 201) karate.log('Booking created successfully')
+  
+  * if (responseStatus == 409) karate.log('Booking conflict (shared environment). Not failing the test.')
 
+  * if (responseStatus != 200 && responseStatus != 201 && responseStatus != 409) karate.fail('Unexpected status: ' + responseStatus)
