@@ -10,4 +10,8 @@ class RunnerTest {
   Karate testRooms() {
     return Karate.run("classpath:features/rooms.feature");
   }
+  @Karate.Test
+  Karate testBooking() {
+    return Karate.run("classpath:features/booking.feature");
+  }
 }
