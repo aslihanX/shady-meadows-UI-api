@@ -29,3 +29,14 @@ test('Admin - redirect & Messages Tab visible', async ({ page }) => {
   await expect(page.getByText('Messages')).toBeVisible()
 })
 
+test('Admin - invalid credentials should not login', async ({ page }) => {
+  const admin = new AdminPage(page)
+
+  await page.goto('/admin')
+
+  await page.getByLabel('Username').fill('admin')
+  await page.getByLabel('Password').fill('wrongpass')
+  await page.getByRole('button', { name: 'Login' }).click()
+
+  await expect(admin.invalidCredentialsAlert()).toBeVisible();
+})
