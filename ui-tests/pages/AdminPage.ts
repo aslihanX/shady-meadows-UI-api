@@ -1,4 +1,4 @@
-import { Locator } from "@playwright/test";
+import { Locator, expect } from "@playwright/test";
 
 export class AdminPage {
   constructor(private page) {}
@@ -21,5 +21,11 @@ export class AdminPage {
     return this.page.getByRole('alert', { hasText: /Invalid credentials/i });
 }
 
+async verifyRoomTypeVisible(roomType: string) {
+    const dynamicId = `#type${roomType}`; 
+    const roomLocator = this.page.locator(dynamicId);
+    
+    await expect(roomLocator).toBeVisible({ timeout: 10000 });
+}
 
 }
